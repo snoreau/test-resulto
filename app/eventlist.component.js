@@ -27,9 +27,9 @@ angular.module('testResulto').component('eventList', {
                 $scope.filterEvents = $scope.events;
                 $scope.setPage(1);
             } else {
-                tmpEvents = filterFilter($scope.events, { date: $scope.filterText});
+                tmpEvents = filterFilter($scope.events, { date: $scope.filterText });
                 if (tmpEvents.length == 0) {
-                    tmpEvents = filterFilter($scope.events, { title: $scope.filterText});
+                    tmpEvents = filterFilter($scope.events, { title: $scope.filterText });
                 }
                 $scope.filterEvents = tmpEvents;
                 $scope.setPage(1);
@@ -41,33 +41,30 @@ angular.module('testResulto').component('eventList', {
                 $scope.currentPage = newpage;
             }
 
-            var pagedData = $scope.filterEvents.slice(($scope.currentPage - 1) * $scope.itemsPerPage,
+            var pagedData = $scope.filterEvents.slice(
+                ($scope.currentPage - 1) * $scope.itemsPerPage,
                 $scope.currentPage * $scope.itemsPerPage);
             $scope.pageEvents = pagedData;
         }
  
-        $scope.showDetail = function (event, backgroundClass) {
+        $scope.showDetail = function (id, backgroundClass) {
             $uibModal.open({
                 animation: true,
                 templateUrl: '/templates/eventdetail.html',
                 controller: ['$scope', '$uibModalInstance', 'eventService',
                 function ($scope, $uibModalInstance, eventService) {
+
                     $scope.close = function () {
                         $uibModalInstance.close();
                     }
 
-                    $scope.event = event;
-                    $scope.event.backgroundClass = backgroundClass;
-
-/* Le serveur retourne une erreur
-                     eventService.getEvent(id)
+                    eventService.getEvent(id)
                         .then(function (data) {
-                            $scope.event = data;
-                            console.log($scope.event);
+                            $scope.event = data.event_detail;
+                            $scope.event.backgroundClass = backgroundClass;
                         }, function (error) {
-                            console.error("Une erreur est survenue lors de la demande de données.");                
+                            console.error("Une erreur est survenue lors de la demande de données.");               
                         });
- */                        
                 }]
             });
         }

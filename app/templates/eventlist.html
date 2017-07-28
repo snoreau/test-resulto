@@ -14,7 +14,7 @@
             <th>Title</th>
             <th>Details</th>
         </tr>
-        <tr ng-click="showDetail(event, getClass(event.detail))"
+        <tr ng-click="showDetail(event.id, getClass(event.detail))"
             ng-repeat="event in pageEvents"
             ng-class="getClass(event.detail)">
             <td>{{event.date}}</td>
