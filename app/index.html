@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Resulto</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body ng-app="testResulto">
+
+  <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+          <div class="navbar-header">
+
+              <!-- Collapsed Hamburger -->
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                  <span class="sr-only">Toggle Navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+
+          </div>
+
+          <div class="collapse navbar-collapse" id="app-navbar-collapse">
+              <!-- Left Side Of Navbar -->
+              <ul class="nav navbar-nav">
+                  <a class="navbar-brand" href="#">
+                    <img src="assets/images/resulto.png" alt="Brand">
+                  </a>
+                  <li><a href="#/events">My Events</a></li>
+                  <li><a href="#">My Tasks</a></li>
+              </ul>
+
+              <!-- Right Side Of Navbar -->
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">Logout</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+  <div ng-view></div>
+
+  <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Copyright &copy; Resulto, 2017</p>
+            </div>
+        </div>
+    </div>
+  </footer>
+
+  <script src="libs/angular.min.js"></script> 
+  <script src="libs/angular-route.js"></script> 
+  <script src="libs/ui-bootstrap-tpls-2.5.0.min.js"></script> 
+  <script src="assets/js/util.js"></script>
+  <script src="app.js"></script>
+  <script src="app.config.js"></script>
+  <script src="event.service.js"></script>
+  <script src="eventlist.component.js"></script>
+</body>
+</html>

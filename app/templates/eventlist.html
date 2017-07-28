@@ -1,0 +1,27 @@
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input type="text" ng-model="filterText" ng-change="updateSearch()" class="form-control" placeholder="Enter a keyword">
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-bordered top-space">
+        <tr>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Details</th>
+        </tr>
+        <tr ng-click="showDetail(event, getClass(event.detail))"
+            ng-repeat="event in pageEvents"
+            ng-class="getClass(event.detail)">
+            <td>{{event.date}}</td>
+            <td>{{event.title}}</td>
+            <td>{{event.detail}}</td>
+        </tr>
+    </table>
+
+    <ul uib-pagination items-per-page="itemsPerPage" class="pagination-sm" 
+        total-items="filterEvents.length" ng-model="currentPage" ng-change="setPage()"></ul>
